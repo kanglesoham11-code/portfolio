@@ -42,8 +42,8 @@
   }
 
   // ─── CONFIG ───
-  // Significantly reduce count on mobile to guarantee 60fps
-  const POOL = isMobile ? 120 : 400; 
+  // Significantly reduce count on mobile to guarantee smooth 60fps
+  const POOL = isMobile ? 85 : 400; 
   const CENTER_GAP = isMobile ? 25 : 40;
   const streaks = [];
 
@@ -57,7 +57,8 @@
     const x3d = (Math.random() - 0.5) * 1800;
     const y3d = (Math.random() - 0.5) * 1800;
     
-    const zSpeed = 0.5 + Math.random() * 2.0;
+    // Make mobile significantly faster so the effect is dramatic
+    const zSpeed = isMobile ? (1.5 + Math.random() * 3.5) : (0.5 + Math.random() * 2.0);
 
     return {
       x3d,
@@ -75,7 +76,7 @@
     s.z = 2000 + Math.random() * 500;
     s.x3d = (Math.random() - 0.5) * 2000;
     s.y3d = (Math.random() - 0.5) * 2000;
-    s.zSpeed = 0.5 + Math.random() * 2.0;
+    s.zSpeed = isMobile ? (1.5 + Math.random() * 3.5) : (0.5 + Math.random() * 2.0);
     s.color = COLORS[Math.floor(Math.random() * COLORS.length)];
     s.ghost = getGhostColor(s.color);
     s.baseWidth = 0.3 + Math.random() * 0.3;
