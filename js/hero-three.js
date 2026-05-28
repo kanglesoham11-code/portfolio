@@ -146,12 +146,8 @@
       if (distFromCenter > CENTER_GAP && s.z > 0) {
         
         const depth = 1 - (s.z / 2000);
-        
-        // For mobile: Light-speed lines need to be thicker and fully opaque to be visible
-        const lw = isMobile ? (s.baseWidth * 2.0) + (depth * 1.5) : s.baseWidth + (depth * 0.6);
-        
-        // For mobile: Make colors much brighter (higher opacity)
-        const alpha = isMobile ? 0.8 + (depth * 0.2) : 0.4 + (depth * 0.5);
+        const lw = s.baseWidth + (depth * 0.6);
+        const alpha = 0.4 + (depth * 0.5);
 
         // Main line
         ctx.beginPath();
