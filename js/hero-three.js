@@ -10,7 +10,7 @@
   const canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
 
-  const ctx = canvas.getContext('2d', { alpha: false }); // Disable alpha channel on canvas itself for rendering speed
+  const ctx = canvas.getContext('2d');
   const isMobile = window.innerWidth < 768;
 
   function resize() {
