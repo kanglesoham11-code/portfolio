@@ -57,8 +57,8 @@
     const x3d = (Math.random() - 0.5) * 1800;
     const y3d = (Math.random() - 0.5) * 1800;
     
-    // Make mobile significantly faster so the effect is dramatic
-    const zSpeed = isMobile ? (1.5 + Math.random() * 3.5) : (0.5 + Math.random() * 2.0);
+    // Speed of light strictly for mobile
+    const zSpeed = isMobile ? (8.0 + Math.random() * 12.0) : (0.5 + Math.random() * 2.0);
 
     return {
       x3d,
@@ -67,7 +67,8 @@
       zSpeed,
       color,
       ghost: getGhostColor(color),
-      trailLen: 150 + Math.random() * 300,
+      // Longer trails for mobile to sell the extreme speed illusion
+      trailLen: isMobile ? (400 + Math.random() * 800) : (150 + Math.random() * 300),
       baseWidth: 0.3 + Math.random() * 0.3,
     };
   }
@@ -76,11 +77,11 @@
     s.z = 2000 + Math.random() * 500;
     s.x3d = (Math.random() - 0.5) * 2000;
     s.y3d = (Math.random() - 0.5) * 2000;
-    s.zSpeed = isMobile ? (1.5 + Math.random() * 3.5) : (0.5 + Math.random() * 2.0);
+    s.zSpeed = isMobile ? (8.0 + Math.random() * 12.0) : (0.5 + Math.random() * 2.0);
     s.color = COLORS[Math.floor(Math.random() * COLORS.length)];
     s.ghost = getGhostColor(s.color);
     s.baseWidth = 0.3 + Math.random() * 0.3;
-    s.trailLen = 150 + Math.random() * 300;
+    s.trailLen = isMobile ? (400 + Math.random() * 800) : (150 + Math.random() * 300);
   }
 
   for (let i = 0; i < POOL; i++) {
