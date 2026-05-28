@@ -46,7 +46,10 @@
       }, '-=0.2')
       .add(() => {
         document.querySelector('.hero-descriptor')?.classList.add('revealed');
-      }, '-=0.1')
+      })
+      .add(() => {
+        document.querySelector('.hero-image-container')?.classList.add('revealed');
+      })
       .add(() => {
         document.querySelector('.hero-terminal')?.classList.add('revealed');
         typeTerminalLines('.hero-terminal .terminal-line');

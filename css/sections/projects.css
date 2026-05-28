@@ -1,25 +1,30 @@
-/* PROJECTS — Monochrome Space · Premium Typography */
+/* PROJECTS — Hyperspace Warp Theme · Fully Transparent */
 
 .project-card {
-  background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05);
+  background: transparent; 
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: var(--border-radius-lg); padding: 44px; margin-bottom: 36px;
-  backdrop-filter: blur(12px); position: relative; overflow: hidden;
-  opacity: 0; transform: translateY(60px); transition: border-color 0.4s, box-shadow 0.4s;
-  box-shadow: 0 4px 30px rgba(0,0,0,0.25);
+  backdrop-filter: none; /* Removed blur so stars are perfectly clear */
+  position: relative; overflow: hidden;
+  opacity: 0; transform: translateY(60px); transition: border-color 0.4s, box-shadow 0.4s, background 0.4s;
+  box-shadow: none; /* Removed shadow for cleaner transparent look */
 }
 .project-card.revealed { opacity: 1; transform: translateY(0); }
 
 .project-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-  opacity: 0; transition: opacity 0.4s;
+  background: linear-gradient(90deg, transparent, rgba(245, 166, 35, 0.4), rgba(80, 227, 194, 0.3), transparent);
+  opacity: 0.3; transition: opacity 0.4s;
 }
 .project-card:hover::before { opacity: 1; }
-.project-card:hover { border-color: rgba(255,255,255,0.1); box-shadow: 0 16px 60px rgba(0,0,0,0.5); }
+.project-card:hover { 
+  border-color: rgba(245, 166, 35, 0.2); 
+  background: rgba(8, 8, 8, 0.2); /* Slight tint on hover for interaction feedback */
+}
 
 .project-card::after {
   content: ''; position: absolute; inset: 0;
-  background: linear-gradient(var(--holo-angle, 135deg), transparent 30%, rgba(255,255,255,0.01) 50%, transparent 70%);
+  background: linear-gradient(var(--holo-angle, 135deg), transparent 30%, rgba(245, 166, 35, 0.02) 50%, transparent 70%);
   pointer-events: none; opacity: 0; transition: opacity 0.3s;
 }
 .project-card:hover::after { opacity: 1; }
@@ -28,80 +33,47 @@
   display: flex; align-items: center; justify-content: space-between;
   margin-bottom: 16px; flex-wrap: wrap; gap: 12px;
 }
-
 .project-title {
-  font-family: var(--font-heading);
-  font-size: var(--text-2xl);
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.03em;
-  text-shadow: 0 0 40px rgba(255,255,255,0.06);
+  font-family: var(--font-heading); font-size: var(--text-2xl); font-weight: 800;
+  color: #ffffff; letter-spacing: -0.03em;
+  text-shadow: 0 0 40px rgba(245, 166, 35, 0.2);
 }
-
 .project-tagline {
-  font-family: var(--font-body);
-  font-size: var(--text-lg);
-  color: #999;
-  margin-bottom: 28px;
-  line-height: 1.6;
-  font-style: italic;
-  letter-spacing: 0.01em;
+  font-family: var(--font-body); font-size: var(--text-lg); 
+  color: #ffffff;
+  margin-bottom: 28px; line-height: 1.6; font-style: italic; letter-spacing: 0.01em;
+  opacity: 0.95;
 }
 
 .pipeline-viz {
   display: flex; align-items: center; gap: 10px; margin-bottom: 28px; flex-wrap: wrap;
-  padding: 18px 20px; background: rgba(255,255,255,0.02);
-  border-radius: var(--border-radius); border: 1px solid rgba(255,255,255,0.04);
+  padding: 18px 20px; background: rgba(0,0,0,0.4); 
+  border-radius: var(--border-radius); border: 1px solid rgba(255,255,255,0.06);
 }
 .pipeline-stage {
   font-family: var(--font-code); font-size: 12px; font-weight: 500;
-  color: #bbb; padding: 7px 16px;
-  border: 1px solid rgba(255,255,255,0.1); border-radius: var(--border-radius-tag);
-  background: rgba(255,255,255,0.03); transition: all 0.3s;
-  letter-spacing: 0.05em;
+  color: var(--accent-cyan); padding: 7px 16px;
+  border: 1px solid rgba(80, 227, 194, 0.15); border-radius: var(--border-radius-tag);
+  background: rgba(80, 227, 194, 0.05); transition: all 0.3s; letter-spacing: 0.05em;
 }
-.pipeline-stage.active { background: rgba(255,255,255,0.08); color: #fff; box-shadow: 0 0 20px rgba(255,255,255,0.05); }
-.pipeline-arrow { color: #333; font-size: var(--text-base); animation: arrowPulse 2s ease-in-out infinite; }
-@keyframes arrowPulse { 0%,100% { opacity: 0.2; transform: translateX(0); } 50% { opacity: 0.6; transform: translateX(4px); } }
+.pipeline-stage.active { background: rgba(80, 227, 194, 0.15); color: #fff; box-shadow: 0 0 20px rgba(80, 227, 194, 0.15); }
+.pipeline-arrow { color: #888; font-size: var(--text-base); animation: arrowPulse 2s ease-in-out infinite; }
+@keyframes arrowPulse { 0%,100% { opacity: 0.4; transform: translateX(0); } 50% { opacity: 0.9; transform: translateX(4px); } }
 
-.project-metrics {
-  display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px;
-}
+.project-metrics { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
+.tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
 
-.tech-stack {
-  display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px;
-}
-
-.project-bullets {
-  list-style: none; padding: 0;
-}
-
+.project-bullets { list-style: none; padding: 0; }
 .project-bullets li {
-  font-family: var(--font-body);
-  font-size: 1.05rem;
-  color: #999;
-  line-height: 1.85;
-  padding-left: 24px;
-  position: relative;
-  margin-bottom: 14px;
-  letter-spacing: 0.005em;
+  font-family: var(--font-body); font-size: 1.05rem; 
+  color: #ffffff; 
+  line-height: 1.85; padding-left: 24px; position: relative; margin-bottom: 14px; letter-spacing: 0.005em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
-
 .project-bullets li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: #444;
-  font-family: var(--font-code);
-  font-size: 0.85rem;
+  content: '→'; position: absolute; left: 0; color: var(--accent-amber); font-family: var(--font-code); font-size: 0.85rem; opacity: 0.8;
 }
-
-/* Highlight key phrases inside bullets */
-.project-bullets li strong,
-.project-bullets li b {
-  color: #ddd;
-  font-weight: 600;
-}
+.project-bullets li strong, .project-bullets li b { color: #ffffff; font-weight: 700; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
 
 @media (max-width: 768px) {
   .project-card { padding: 28px; }

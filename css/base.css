@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════════
-   BASE — Clean Monochrome Space
+   BASE — Hyperspace Warp Dark Theme
    ═══════════════════════════════════════════════════════════════════════════ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -9,23 +9,24 @@ html.lenis, html.lenis body { height: auto; }
 
 body {
   font-family: var(--font-body);
-  background: #000; color: var(--text-primary);
+  background: var(--bg-void);
+  color: var(--text-primary);
   overflow-x: hidden; -webkit-font-smoothing: antialiased; cursor: auto;
 }
 
-a { color: var(--text-secondary); text-decoration: none; cursor: pointer; transition: color 0.3s; }
+a { color: var(--accent-cyan); text-decoration: none; cursor: pointer; transition: color 0.3s; }
 a:hover { color: #fff; }
 
-::selection { background: rgba(255,255,255,0.15); color: #fff; }
+::selection { background: rgba(245, 166, 35, 0.2); color: #fff; }
 
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #000; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
+::-webkit-scrollbar-track { background: var(--bg-void); }
+::-webkit-scrollbar-thumb { background: rgba(245, 166, 35, 0.2); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(245, 166, 35, 0.4); }
 
 /* Preloader */
 .preloader {
-  position: fixed; inset: 0; z-index: 10000; background: #000;
+  position: fixed; inset: 0; z-index: 10000; background: var(--bg-void);
   display: flex; align-items: center; justify-content: center;
   transition: opacity 0.8s var(--ease-smooth), visibility 0.8s;
 }
@@ -34,25 +35,27 @@ a:hover { color: #fff; }
 
 .preloader-logo {
   font-family: var(--font-heading); font-size: var(--text-4xl); font-weight: 800;
-  color: #FFFFFF; margin-bottom: 40px; letter-spacing: -0.03em;
+  color: var(--accent-amber);
+  margin-bottom: 40px; letter-spacing: -0.03em;
   animation: logoPulse 2s ease-in-out infinite;
 }
 @keyframes logoPulse {
   0%,100% { opacity: 1; }
-  50% { opacity: 0.6; }
+  50% { opacity: 0.5; }
 }
 
 .preloader-bar-track {
-  width: 240px; height: 1px; background: rgba(255,255,255,0.08);
+  width: 240px; height: 1px; background: rgba(255,255,255,0.06);
   border-radius: 1px; margin: 0 auto 16px; overflow: hidden;
 }
 .preloader-bar-fill {
-  height: 100%; width: 0%; background: #fff;
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--accent-amber), var(--accent-orange), var(--accent-cyan));
   border-radius: 1px; transition: width 0.3s var(--ease-smooth);
 }
 .preloader-percent {
   font-family: var(--font-code); font-size: var(--text-sm);
-  color: #888; margin-bottom: 8px; letter-spacing: 0.1em;
+  color: var(--accent-amber); margin-bottom: 8px; letter-spacing: 0.1em;
 }
 .preloader-status {
   font-family: var(--font-code); font-size: var(--text-xs);

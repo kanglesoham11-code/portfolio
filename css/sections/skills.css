@@ -1,32 +1,32 @@
-/* SKILLS — Monochrome Space */
+/* SKILLS — Hyperspace Warp Theme */
 
 .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 
 .skill-category {
-  background: var(--bg-card); border: 1px solid rgba(255,255,255,0.05);
+  background: var(--bg-card); border: 1px solid rgba(255,255,255,0.04);
   border-radius: var(--border-radius-lg); padding: 28px; backdrop-filter: blur(12px);
   opacity: 0; transform: translateY(40px); transition: all 0.3s var(--ease-smooth);
   box-shadow: 0 2px 20px rgba(0,0,0,0.2);
 }
 .skill-category.revealed { opacity: 1; transform: translateY(0); }
-.skill-category:hover { border-color: rgba(255,255,255,0.1); }
+.skill-category:hover { border-color: rgba(245, 166, 35, 0.1); }
 
 .category-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-.category-number { font-family: var(--font-code); font-size: var(--text-xs); color: #555; }
+.category-number { font-family: var(--font-code); font-size: var(--text-xs); color: var(--accent-amber); opacity: 0.4; }
 .category-title { font-family: var(--font-code); font-size: var(--text-sm); font-weight: 700; color: #fff; letter-spacing: 0.1em; }
 
 .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
 
 .skill-tag {
-  font-family: var(--font-code); font-size: 11px; color: #777;
+  font-family: var(--font-code); font-size: 11px; color: #666;
   padding: 5px 12px; background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--border-radius-tag); transition: all 0.3s var(--ease-smooth);
   opacity: 0; transform: translateY(10px) scale(0.9);
 }
 .skill-tag.revealed { opacity: 1; transform: translateY(0) scale(1); }
-.skill-tag:hover { color: #fff; border-color: rgba(255,255,255,0.2); transform: translateY(-3px) scale(1.02); }
+.skill-tag:hover { color: var(--accent-cyan); border-color: rgba(80, 227, 194, 0.3); transform: translateY(-3px) scale(1.02); }
 
-.skill-tag.featured { color: #ccc; border-color: rgba(255,255,255,0.12); background: rgba(255,255,255,0.04); }
+.skill-tag.featured { color: var(--accent-amber); border-color: rgba(245, 166, 35, 0.15); background: rgba(245, 166, 35, 0.04); }
 
 @media (max-width: 768px) { .skills-grid { grid-template-columns: 1fr; } }
