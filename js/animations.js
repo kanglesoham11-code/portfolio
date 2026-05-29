@@ -155,6 +155,27 @@
   // ——— Skills Section ———
   function initSkillsAnimations() {
     const categories = document.querySelectorAll('.skill-category');
+    
+    // Proximity activation for skill blinking
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    if (!isMobile) {
+      document.addEventListener('mousemove', (e) => {
+        categories.forEach(cat => {
+          const rect = cat.getBoundingClientRect();
+          // Distance from cursor to the bounding box of the category
+          const dx = Math.max(rect.left - e.clientX, 0, e.clientX - rect.right);
+          const dy = Math.max(rect.top - e.clientY, 0, e.clientY - rect.bottom);
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          
+          if (dist < 150) {
+            cat.classList.add('proximity-active');
+          } else {
+            cat.classList.remove('proximity-active');
+          }
+        });
+      });
+    }
+
     categories.forEach((cat, catIdx) => {
       ScrollTrigger.create({
         trigger: cat,
@@ -195,19 +216,28 @@
         delay: i * 0.1
       });
 
-      // Pipeline stage sequential glow
+      // Pipeline stage sequential glow (Continuous Loop)
       ScrollTrigger.create({
         trigger: card,
         start: 'top 70%',
         once: true,
         onEnter: () => {
           const stages = card.querySelectorAll('.pipeline-stage');
-          stages.forEach((stage, si) => {
-            setTimeout(() => {
-              stage.classList.add('active');
-              setTimeout(() => stage.classList.remove('active'), 800);
-            }, si * 300);
-          });
+          if (!stages.length) return;
+          
+          function runLoop() {
+            stages.forEach((stage, si) => {
+              setTimeout(() => {
+                stage.classList.add('active');
+                setTimeout(() => stage.classList.remove('active'), 800);
+              }, si * 300);
+            });
+            
+            // Restart loop after all stages complete plus a small pause
+            setTimeout(runLoop, stages.length * 300 + 1200);
+          }
+          
+          runLoop();
         }
       });
     });
@@ -262,6 +292,23 @@
     });
   }
 
+  // ——— Education Section ———
+  function initEducationAnimations() {
+    const cards = document.querySelectorAll('.education-card');
+    cards.forEach((card, i) => {
+      ScrollTrigger.create({
+        trigger: card,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => {
+          setTimeout(() => {
+            card.classList.add('revealed');
+          }, i * 200);
+        }
+      });
+    });
+  }
+
   // ——— Contact Section ———
   function initContactAnimations() {
     const terminal = document.querySelector('.contact-terminal');
@@ -277,6 +324,17 @@
       });
     }
 
+    // Contact form reveal
+    const formWrapper = document.querySelector('.contact-form-wrapper');
+    if (formWrapper) {
+      ScrollTrigger.create({
+        trigger: formWrapper,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => formWrapper.classList.add('revealed')
+      });
+    }
+
     const socials = document.querySelector('.social-links');
     if (socials) {
       ScrollTrigger.create({
@@ -286,6 +344,23 @@
         onEnter: () => socials.classList.add('revealed')
       });
     }
+  }
+
+  // ——— Scroll Progress Bar ———
+  function initScrollProgress() {
+    const progressBar = document.getElementById('scroll-progress');
+    if (!progressBar) return;
+
+    gsap.to(progressBar, {
+      scaleX: 1,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: document.body,
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 0.3,
+      }
+    });
   }
 
   // ——— Nav Scroll ———
@@ -349,7 +424,9 @@
     initSkillsAnimations();
     initProjectAnimations();
     initAchievementAnimations();
+    initEducationAnimations();
     initContactAnimations();
+    initScrollProgress();
     initNavAnimations();
     initBackgroundParallax();
   }

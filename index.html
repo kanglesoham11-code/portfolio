@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080808">
     <title>Soham Kangle — Data Engineer & Agentic Systems Builder</title>
     <meta name="description" content="Portfolio of Soham Kangle, Data Engineering student at PVG COET Pune. Builder of ETL pipelines, multi-agent AI systems, and production-grade data infrastructure. GUVi National Hackathon Finalist." />
     <meta property="og:title" content="Soham Kangle — Data Engineer" />
@@ -16,19 +17,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/variables.css?v=4">
-    <link rel="stylesheet" href="css/base.css?v=4">
-    <link rel="stylesheet" href="css/layout.css?v=4">
-    <link rel="stylesheet" href="css/animations.css?v=4">
-    <link rel="stylesheet" href="css/components.css?v=4">
-    <link rel="stylesheet" href="css/sections/hero.css?v=4">
-    <link rel="stylesheet" href="css/sections/about.css?v=4">
-    <link rel="stylesheet" href="css/sections/skills.css?v=4">
-    <link rel="stylesheet" href="css/sections/projects.css?v=4">
-    <link rel="stylesheet" href="css/sections/achievements.css?v=4">
-    <link rel="stylesheet" href="css/sections/contact.css?v=4">
+    <link rel="stylesheet" href="css/variables.css?v=5">
+    <link rel="stylesheet" href="css/base.css?v=5">
+    <link rel="stylesheet" href="css/layout.css?v=5">
+    <link rel="stylesheet" href="css/animations.css?v=5">
+    <link rel="stylesheet" href="css/components.css?v=5">
+    <link rel="stylesheet" href="css/sections/hero.css?v=5">
+    <link rel="stylesheet" href="css/sections/about.css?v=5">
+    <link rel="stylesheet" href="css/sections/skills.css?v=5">
+    <link rel="stylesheet" href="css/sections/projects.css?v=5">
+    <link rel="stylesheet" href="css/sections/achievements.css?v=5">
+    <link rel="stylesheet" href="css/sections/education.css?v=5">
+    <link rel="stylesheet" href="css/sections/contact.css?v=5">
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div id="cursor-dot" class="cursor-dot"></div>
+    <div id="cursor-ring" class="cursor-ring"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
     <!-- ═══ PRELOADER ═══ -->
     <div id="preloader" class="preloader">
         <div class="preloader-inner">
@@ -64,7 +73,8 @@
                 <a href="#skills" class="nav-link" data-stage="03" data-magnetic>TRANSFORM</a>
                 <a href="#projects" class="nav-link" data-stage="04" data-magnetic>VALIDATE</a>
                 <a href="#achievements" class="nav-link" data-stage="05" data-magnetic>SERVE</a>
-                <a href="#contact" class="nav-link" data-stage="06" data-magnetic>∴</a>
+                <a href="#education" class="nav-link" data-stage="06" data-magnetic>LOAD</a>
+                <a href="#contact" class="nav-link" data-stage="07" data-magnetic>∴</a>
                 <div class="nav-indicator"></div>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -82,6 +92,7 @@
         <a href="#skills" class="mobile-link">TRANSFORM</a>
         <a href="#projects" class="mobile-link">VALIDATE</a>
         <a href="#achievements" class="mobile-link">SERVE</a>
+        <a href="#education" class="mobile-link">LOAD</a>
         <a href="#contact" class="mobile-link">ENDPOINT</a>
     </div>
 
@@ -103,10 +114,6 @@
                 
                 <p class="hero-descriptor" data-animate="hero-desc">// Soham Kangle — Data Engineer & Agentic Systems Builder<br>// 2nd Year @ PVG COET, Pune | GUVi National Hackathon Finalist</p>
                 
-                <div class="hero-image-container" data-animate="hero-img">
-                    <img src="assets/profile.jpg" alt="Soham Kangle" class="hero-image">
-                </div>
-                
                 <div class="hero-terminal" data-animate="hero-terminal">
                     <div class="terminal-header">
                         <span class="terminal-dot"></span>
@@ -126,6 +133,11 @@
                     <a href="#projects" class="btn btn-primary" data-magnetic>View My Pipeline →</a>
                     <a href="assets/resume.pdf" class="btn btn-secondary" data-magnetic download>Download Resume ↓</a>
                 </div>
+            </div>
+
+            <!-- Profile Image — own grid column -->
+            <div class="hero-image-container" data-animate="hero-img">
+                <img src="assets/profile.jpg" alt="Soham Kangle" class="hero-image">
             </div>
         </div>
         
@@ -554,10 +566,59 @@
         </div>
     </section>
 
-    <!-- ═══ SECTION 06: CONTACT (ENDPOINT) ═══ -->
-    <section id="contact" class="section contact-section">
-        <div class="stage-label">// STAGE_06 : ENDPOINT</div>
+    <!-- ═══ SECTION 06: EDUCATION (LOAD) ═══ -->
+    <section id="education" class="section education-section">
+        <div class="stage-label">// STAGE_06 : LOAD</div>
         <div class="pipeline-node" data-stage="06"></div>
+        <div class="container">
+            <h2 class="section-heading" data-animate="heading">Loading Knowledge Base</h2>
+            
+            <div class="education-grid">
+                <div class="education-card" data-animate="education" data-tilt>
+                    <div class="education-year">2023 – 2027 (Expected)</div>
+                    <div class="education-degree">B.E. Information Technology</div>
+                    <div class="education-institution">PVG's College of Engineering & Technology, Pune</div>
+                    <ul class="education-details">
+                        <li>Focus: Data Engineering & Distributed Systems</li>
+                        <li>Top performer in DBMS and DSA coursework</li>
+                        <li>Active hackathon competitor since Year 1</li>
+                    </ul>
+                    <div class="coursework-tags">
+                        <span class="coursework-tag">DBMS</span>
+                        <span class="coursework-tag">Data Structures</span>
+                        <span class="coursework-tag">Algorithms</span>
+                        <span class="coursework-tag">Computer Networks</span>
+                        <span class="coursework-tag">Operating Systems</span>
+                        <span class="coursework-tag">OOP</span>
+                    </div>
+                </div>
+
+                <div class="education-card" data-animate="education" data-tilt>
+                    <div class="education-year">Continuous Learning</div>
+                    <div class="education-degree">Self-Directed Engineering</div>
+                    <div class="education-institution">Building beyond the curriculum</div>
+                    <ul class="education-details">
+                        <li>Production ETL pipelines with AWS + FastAPI</li>
+                        <li>Multi-agent orchestration with LangGraph</li>
+                        <li>Vector databases & semantic search (ChromaDB)</li>
+                    </ul>
+                    <div class="coursework-tags">
+                        <span class="coursework-tag">AWS</span>
+                        <span class="coursework-tag">LangGraph</span>
+                        <span class="coursework-tag">FastAPI</span>
+                        <span class="coursework-tag">ChromaDB</span>
+                        <span class="coursework-tag">Kafka</span>
+                        <span class="coursework-tag">React</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ SECTION 07: CONTACT (ENDPOINT) ═══ -->
+    <section id="contact" class="section contact-section">
+        <div class="stage-label">// STAGE_07 : ENDPOINT</div>
+        <div class="pipeline-node" data-stage="07"></div>
         <div class="container">
             <h2 class="section-heading" data-animate="heading">Open Port. Ready to Receive.</h2>
             
@@ -577,6 +638,33 @@
                     <p class="terminal-line" data-type-contact="5">&gt; github: <a href="https://github.com/kanglesoham11-code" target="_blank">github.com/kanglesoham11-code</a></p>
                     <p class="terminal-line" data-type-contact="6">&gt; linkedin: <a href="https://linkedin.com/in/soham-kangle-404ab6366" target="_blank">linkedin.com/in/soham-kangle-404ab6366</a></p>
                 </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper" data-animate="contact-form">
+                <div class="contact-form-header">// SEND_MESSAGE</div>
+                <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                    <input type="hidden" name="subject" value="Portfolio Contact: New Message">
+                    <input type="hidden" name="from_name" value="Portfolio Contact Form">
+                    <input type="checkbox" name="botcheck" style="display: none;">
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="contact-name">> name</label>
+                        <input type="text" id="contact-name" name="name" class="form-input" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="contact-email">> email</label>
+                        <input type="email" id="contact-email" name="email" class="form-input" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="contact-message">> message</label>
+                        <textarea id="contact-message" name="message" class="form-textarea" placeholder="Type your message..." required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit" data-magnetic>TRANSMIT MESSAGE →</button>
+                </form>
+                <div class="form-success" id="form-success">&gt; message_status: DELIVERED ✓ — I'll respond within 24 hours.</div>
+                <div class="form-error" id="form-error">&gt; error: TRANSMISSION_FAILED — Please try email directly.</div>
             </div>
             
             <div class="social-links" data-animate="socials">
@@ -604,17 +692,18 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>Soham Kangle © 2025 — Built with data, driven by pipelines.</p>
+        <p>Soham Kangle © <span id="footer-year">2025</span> — Built with data, driven by pipelines.</p>
         <p>PVG COET | Pune, India</p>
     </footer>
 
     <!-- Scripts — Order matters -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js?v=4"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?v=4"></script>
-    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js?v=4"></script>
-    <!-- cursor.js removed — using normal cursor -->
-    <script src="js/hero-three.js?v=4"></script>
-    <script src="js/animations.js?v=4"></script>
-    <script src="js/main.js?v=4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js?v=5"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js?v=5"></script>
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js?v=5"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/cursor.js?v=5"></script>
+    <script src="js/hero-three.js?v=5"></script>
+    <script src="js/animations.js?v=5"></script>
+    <script src="js/main.js?v=5"></script>
 </body>
 </html>

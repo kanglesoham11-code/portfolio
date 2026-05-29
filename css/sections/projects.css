@@ -52,11 +52,16 @@
 }
 .pipeline-stage {
   font-family: var(--font-code); font-size: 12px; font-weight: 500;
-  color: var(--accent-cyan); padding: 7px 16px;
-  border: 1px solid rgba(80, 227, 194, 0.15); border-radius: var(--border-radius-tag);
-  background: rgba(80, 227, 194, 0.05); transition: all 0.3s; letter-spacing: 0.05em;
+  color: #888; padding: 7px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--border-radius-tag);
+  background: rgba(255, 255, 255, 0.03); transition: all 0.3s; letter-spacing: 0.05em;
 }
-.pipeline-stage.active { background: rgba(80, 227, 194, 0.15); color: #fff; box-shadow: 0 0 20px rgba(80, 227, 194, 0.15); }
+.pipeline-stage.active { 
+  background: rgba(80, 227, 194, 0.15); 
+  border-color: rgba(80, 227, 194, 0.6);
+  color: var(--accent-cyan); 
+  box-shadow: 0 0 15px rgba(80, 227, 194, 0.3); 
+}
 .pipeline-arrow { color: #888; font-size: var(--text-base); animation: arrowPulse 2s ease-in-out infinite; }
 @keyframes arrowPulse { 0%,100% { opacity: 0.4; transform: translateX(0); } 50% { opacity: 0.9; transform: translateX(4px); } }
 

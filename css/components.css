@@ -74,8 +74,26 @@
   padding: 4px 10px; background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--border-radius-tag); transition: all 0.3s var(--ease-smooth);
+  animation: techTwinkle 4s ease-in-out infinite;
 }
-.tech-tag:hover { color: var(--accent-cyan); border-color: rgba(80, 227, 194, 0.3); transform: translateY(-2px); }
+
+.tech-tag:nth-child(3n) { animation-delay: 0s; }
+.tech-tag:nth-child(3n+1) { animation-delay: 1.3s; }
+.tech-tag:nth-child(3n+2) { animation-delay: 2.6s; }
+
+@keyframes techTwinkle {
+  0%, 100% { border-color: rgba(255,255,255,0.06); background: rgba(255,255,255,0.03); color: #666; box-shadow: none; }
+  50% { border-color: rgba(80, 227, 194, 0.3); background: rgba(80, 227, 194, 0.05); color: var(--accent-cyan); box-shadow: 0 0 8px rgba(80, 227, 194, 0.1); }
+}
+
+.tech-tag:hover { 
+  animation-play-state: paused;
+  color: var(--accent-amber) !important; 
+  border-color: rgba(245, 166, 35, 0.4) !important; 
+  background: rgba(245, 166, 35, 0.08) !important;
+  box-shadow: 0 0 12px rgba(245, 166, 35, 0.2) !important;
+  transform: translateY(-2px); 
+}
 
 /* Metric Badges */
 .metric-badge {

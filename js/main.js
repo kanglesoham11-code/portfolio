@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════════════
-// MAIN.JS — Preloader, Lenis Smooth Scroll, Mobile Menu
+// MAIN.JS — Preloader, Lenis Smooth Scroll, Mobile Menu, Contact Form
 // ═══════════════════════════════════════════════════════════════════════════
 
 (function() {
@@ -112,12 +112,64 @@
     });
   }
 
+  // ——— Footer Year ———
+  function initFooterYear() {
+    const yearEl = document.getElementById('footer-year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  }
+
+  // ——— Contact Form (Web3Forms) ———
+  function initContactForm() {
+    const form = document.getElementById('contact-form');
+    const successEl = document.getElementById('form-success');
+    const errorEl = document.getElementById('form-error');
+
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitBtn = form.querySelector('.form-submit');
+      const originalText = submitBtn.textContent;
+      submitBtn.classList.add('loading');
+      submitBtn.textContent = 'TRANSMITTING...';
+
+      // Hide previous messages
+      if (successEl) successEl.classList.remove('visible');
+      if (errorEl) errorEl.classList.remove('visible');
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          if (successEl) successEl.classList.add('visible');
+          form.reset();
+        } else {
+          if (errorEl) errorEl.classList.add('visible');
+        }
+      } catch (err) {
+        if (errorEl) errorEl.classList.add('visible');
+      } finally {
+        submitBtn.classList.remove('loading');
+        submitBtn.textContent = originalText;
+      }
+    });
+  }
+
   // ——— Init ———
   function init() {
     initPreloader();
     initLenis();
     initMobileMenu();
     initRipple();
+    initFooterYear();
+    initContactForm();
   }
 
   if (document.readyState === 'loading') {
