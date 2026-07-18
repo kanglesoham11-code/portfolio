@@ -11,7 +11,7 @@ body {
   font-family: var(--font-body);
   background: var(--bg-void);
   color: var(--text-primary);
-  overflow-x: hidden; -webkit-font-smoothing: antialiased; cursor: auto;
+  overflow-x: hidden; -webkit-font-smoothing: antialiased; cursor: default;
 }
 
 a { color: var(--accent-cyan); text-decoration: none; cursor: pointer; transition: color 0.3s; }
@@ -64,35 +64,10 @@ a:hover { color: #fff; }
 
 img, video { max-width: 100%; display: block; }
 
-/* Custom Cursor */
-.cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 8px;
-  background: #fff;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  mix-blend-mode: difference;
-  will-change: transform, opacity;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
+/* Custom Cursor (Disabled — using default arrow) */
+.cursor-dot,
 .cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 36px;
-  height: 36px;
-  border: 1.5px solid rgba(245, 166, 35, 0.3);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99998;
-  will-change: transform, opacity;
-  opacity: 0;
-  transition: opacity 0.3s, border-color 0.3s;
+  display: none;
 }
 
 /* Scroll Progress Bar */

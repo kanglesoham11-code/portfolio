@@ -292,6 +292,35 @@
     });
   }
 
+  // ——— Certifications Section ———
+  function initCertificationAnimations() {
+    // Cert intro counter
+    const certCount = document.querySelector('.cert-intro .cert-count[data-counter]');
+    if (certCount) {
+      ScrollTrigger.create({
+        trigger: certCount,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => animateCounter(certCount)
+      });
+    }
+
+    // Staggered cert card reveals
+    const certCards = document.querySelectorAll('.cert-card');
+    certCards.forEach((card, i) => {
+      ScrollTrigger.create({
+        trigger: card,
+        start: 'top 88%',
+        once: true,
+        onEnter: () => {
+          setTimeout(() => {
+            card.classList.add('revealed');
+          }, i * 100);
+        }
+      });
+    });
+  }
+
   // ——— Education Section ———
   function initEducationAnimations() {
     const cards = document.querySelectorAll('.education-card');
@@ -424,6 +453,7 @@
     initSkillsAnimations();
     initProjectAnimations();
     initAchievementAnimations();
+    initCertificationAnimations();
     initEducationAnimations();
     initContactAnimations();
     initScrollProgress();
